@@ -1,29 +1,32 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>My NoteBook</title>
-    </head>
 
-    <body>
-        <h1>Welcome To My NoteBook</h1>
-    
-        <!-- looks of the web page includes the note pad and buttons-->
-        <div>
-            <div id="note" contenteditable
-            style="border: 1px rgb(0, 0, 0) solid; max-width: 500px; min-height: 100px; background: rgb(255, 255, 255);font-family: 'arial,serif';">
-            </div>
-            <button onclick="save()">Save</button>
-            <button onclick="remove()">Clear</button>
+<head>
+    <meta charset="utf-8">
+    <title>My NoteBook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Welcome To My NoteBook</h1>
+    <div class="switch">Dark mode:              
+        <span class="inner-switch">OFF</span>
+    </div>
+    <!-- looks of the web page includes the note pad and buttons-->
+    <div>
+        <div id="note" contenteditable h: 500px; min-height: 100px; font-family: 'arial,serif';">
         </div>
+        <button onclick="save()">Save</button>
+        <button onclick="remove()">Clear</button>
+    </div>
 
 
-        <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
-       
-        <!-- take input from the notepade and save it or clear it and eventlistener are set up here-->
-       <script>
-           //eventlistener for dom content loaded
-       const fs = new Filer.FileSystem();
+    <script src="https://unpkg.com/filer/dist/filer.min.js"></script>
+
+    <!-- take input from the notepade and save it or clear it and eventlistener are set up here-->
+    <script>
+        //eventlistener for dom content loaded
+        const fs = new Filer.FileSystem();
         window.addEventListener('DOMContentLoaded', (event) => {
             fs.readFile('/note', 'utf8', function (err, data) {
                 if (err) {
@@ -50,6 +53,8 @@
         window.setInterval(save, 2000);
 
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="darkmode.js"></script>
+</body>
 
-    </body>
 </html>
